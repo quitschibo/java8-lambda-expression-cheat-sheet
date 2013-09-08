@@ -8,6 +8,15 @@ General
 
 `LambdaInterface myLambda = (c, d, e, f) -> c + d + e + f;` // take `(c, d, e, f)` as parameter and return the sum as return value. The lambda implements `LambdaInterface` and has the name `myLambda`.
 
+Collections
+-----------
+Iterate a list:
+`list.forEach(i -> System.out.print("Element: " + i);`
+
+Iterate a list with filtering:
+`list.stream().filter(i -> i % 3 == 0).forEach(i -> System.out.print("Element: " + i));`
+
+
 Example
 -------
 <pre>    
