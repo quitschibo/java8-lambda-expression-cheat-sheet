@@ -14,49 +14,49 @@ Iterate a list:
 `list.forEach(i -> System.out.print("Element: " + i);`
 
 Iterate a list with filtering:
-<pre>
+```java
 list.stream()
 	.filter(i -> i % 3 == 0) 
 	.forEach(i -> System.out.print("Element: " + i));
-</pre>
+```
 
 Filtering and mapping:
-<pre>
+```java
 list.stream()
 	.filter(i -> i % 3 == 0)
 	.map(i -> new Double(i))
-</pre>
+```
 
 Filtering, mapping and collecting:
-<pre>
+```java
 ArrayList<Double> doubleList = list.stream()
 	.filter(i -> i % 3 == 0)
 	.map(i -> new Double(i))
 	.collect(Collectors.toCollection(ArrayList::new));
-</pre>
+```
 
 Parallel vs Sequential
 ----------------------
 You can run the mapping and filtering sequential:
-<pre>
+```java
 // if the ints are ordered in list, the result will be ordered, too
 list.stream()
 	.sequential()
 	.filter(i -> i % 3 == 0)
 	.map(i -> new Double(i))
 	.forEach(i -> System.out.println("Element: " + i));
-</pre>
+```
 You can run it parallel:
-<pre>
+```java
 // even if the ints are ordered in list, the result will NOT be ordered
 list.stream()
 	.parallel()
 	.filter(i -> i % 3 == 0)
 	.map(i -> new Double(i))
 	.forEach(i -> System.out.println("Element: " + i));
-</pre>
+```
 BUT:
-<pre>
+```java
 // if the list is ordered, the result will be ordered too, even if it is processed parallel.
 // rule of thumb: if you expect it to be ordered, it will be ordered (lists, arrays, etc.)
 ArrayList<Double> result = list.stream()
@@ -64,11 +64,11 @@ ArrayList<Double> result = list.stream()
 	.filter(i -> i % 3 == 0)
 	.map(i -> new Double(i))
 	.collect(Collectors.toCollection(ArrayList::new));
-</pre>
+```
 
 Example
 -------
-<pre>    
+```java    
   /**
    * The interface of my lambda
    */
@@ -93,4 +93,4 @@ Example
     // here we use the lambda to so something
 	  lamdaUsingMethod("This is my testmessage", errorMessage);
   }
-</pre>
+```
