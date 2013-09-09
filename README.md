@@ -14,8 +14,26 @@ Iterate a list:
 `list.forEach(i -> System.out.print("Element: " + i);`
 
 Iterate a list with filtering:
-`list.stream().filter(i -> i % 3 == 0).forEach(i -> System.out.print("Element: " + i));`
+<pre>
+list.stream()
+	.filter(i -> i % 3 == 0) 
+	.forEach(i -> System.out.print("Element: " + i));
+</pre>
 
+Filtering and mapping:
+<pre>
+list.stream()
+	.filter(i -> i % 3 == 0)
+	.map(i -> new Double(i))
+</pre>
+
+Filtering, mapping and collecting:
+<pre>
+ArrayList<Double> doubleList = list.stream()
+	.filter(i -> i % 3 == 0)
+	.map(i -> new Double(i))
+	.collect(Collectors.toCollection(ArrayList::new));
+</pre>
 
 Example
 -------
