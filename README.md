@@ -35,6 +35,37 @@ ArrayList<Double> doubleList = list.stream()
 	.collect(Collectors.toCollection(ArrayList::new));
 </pre>
 
+Parallel vs Sequential
+----------------------
+You can run the mapping and filtering sequential:
+<pre>
+// if the ints are ordered in list, the result will be ordered, too
+list.stream()
+	.sequential()
+	.filter(i -> i % 3 == 0)
+	.map(i -> new Double(i))
+	.forEach(i -> System.out.println("Element: " + i));
+</pre>
+You can run it parallel:
+<pre>
+// even if the ints are ordered in list, the result will NOT be ordered
+list.stream()
+	.parallel()
+	.filter(i -> i % 3 == 0)
+	.map(i -> new Double(i))
+	.forEach(i -> System.out.println("Element: " + i));
+</pre>
+BUT:
+<pre>
+// if the list is ordered, the result will be ordered too, even if it is processed parallel.
+// rule of thumb: if you expect it to be ordered, it will be ordered (lists, arrays, etc.)
+ArrayList<Double> result = list.stream()
+	.parallel()
+	.filter(i -> i % 3 == 0)
+	.map(i -> new Double(i))
+	.collect(Collectors.toCollection(ArrayList::new));
+</pre>
+
 Example
 -------
 <pre>    
