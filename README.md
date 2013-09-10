@@ -2,11 +2,19 @@ java8-lambda-expression-cheat-sheet
 ===================================
 General
 -------
-`a -> a + 1;` // take `a` as parameter and return `a + 1`
+```java
+a -> a + 1; // take a as parameter and return a + 1
+```
 
-`(b, c) -> b + c;` // take `(b, c)` as parameter and return b + c
+```java
+(b, c) -> b + c; // take (b, c) as parameter and return b + c
+```
 
-`LambdaInterface myLambda = (c, d, e, f) -> c + d + e + f;` // take `(c, d, e, f)` as parameter and return the sum as return value. The lambda implements `LambdaInterface` and has the name `myLambda`.
+```java
+// take (c, d, e, f) as parameter and return the sum as return value.
+// The lambda implements LambdaInterface and has the name myLambda
+LambdaInterface myLambda = (c, d, e, f) -> c + d + e + f; 
+```
 
 Collections
 -----------
